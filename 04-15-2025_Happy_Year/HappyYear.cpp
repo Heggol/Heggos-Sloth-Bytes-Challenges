@@ -36,6 +36,7 @@ int main() {
     std::cout << "Find the next happy year \n ";
     std::cout << "Enter a year (between 0 and 9999):";
     std::cin >> inputYear;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     // the year cannot be negative or greater than 9999 
     // 9999 is the maximum year for the Gregorian calendar in .net (see https://learn.microsoft.com/en-us/dotnet/api/system.globalization.gregoriancalendar.maxsupporteddatetime?view=net-9.0)
     if (inputYear < 0 || inputYear > 9999) {
@@ -46,7 +47,7 @@ int main() {
         std::cout << "The next Happy Year after year " << inputYear << " is:\n";
         std::cout << happyYear;
         std::cout << "\nPress 'Enter' to exit...\n";
-        std::cin.get();
+        std::cin.get(); // fix for bug: input Enter Key is now cleared in line 40 so the program doesn't exit immediately anymore
         return 0;
     }
 }
