@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_set>
+#include <limits>
 
 bool isHappyYear(int year) {
     std::string yearStr = std::to_string(year);
